@@ -69,7 +69,6 @@
                         <table class="table table-striped projects">
                             <thead>
                             <tr>
-                                <th>№</th>
                                 <th>Вопрос</th>
                                 <th>Ответ</th>
                                 <th>Когда</th>
@@ -79,7 +78,6 @@
                             <tbody>
                             @foreach($questions as $answer)
                                 <tr>
-                                    <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $answer->question->text }}</td>
                                     <td>{{ $answer->response }}</td>
                                     <td>{{ $answer->created_at->format('d.m.Y H:i') }}</td>
