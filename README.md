@@ -45,7 +45,7 @@ POST /api/ask-question
 
 
 Инструкция:
-1. git clone 
+1. git clone https://github.com/aleks-shar/magic_ball_on_laravel_12.git
 2. docker run --rm \
    -u "$(id -u):$(id -g)" \
    -v "$(pwd):/var/www/html" \
