@@ -7,10 +7,11 @@ namespace App\Services;
 use App\Models\Question;
 use App\Models\User;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
 final class MagicBallService
 {
-    private const int PAGINATE  = 10;
+    private const int PAGINATE = 10;
     private const array POSSIBLE_ANSWERS = [
         'Да.',
         'Нет.',
@@ -68,5 +69,16 @@ final class MagicBallService
             'question_id' => $question->id,
             'response' => $answer,
         ]);
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getQuestionsForExport(): Collection
+    {
+        return auth()->user()->answers()
+            ->with('question')
+            ->latest()
+            ->get();
     }
 }

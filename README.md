@@ -41,7 +41,9 @@ POST /api/ask-question
 "identifier": "your-identifier"
 }
 
-2. Добавил историю вопросов
+Добавил:
+* Историю вопросов
+* Экспорт в Excel
 
 
 Инструкция:
@@ -54,6 +56,6 @@ POST /api/ask-question
    composer install --ignore-platform-reqs
 3. cp .env.example .env
 4. /vendor/bin/sail build --no-cache
-5. /vendor/bin/sail up
+5. /vendor/bin/sail up -d
 6. /vendor/bin/sail artisan key:generate
 7. /vendor/bin/sail artisan migrate

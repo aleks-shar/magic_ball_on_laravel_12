@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Web;
 
+use App\Exports\AnswersExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\AskQuestionRequest;
 use App\Services\MagicBallService;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Exception;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 final class MagicBallController extends Controller
 {
@@ -47,5 +51,15 @@ final class MagicBallController extends Controller
                 'asked_count' => $question->asked_count,
             ],
         ]);
+    }
+
+    /**
+     * @return BinaryFileResponse
+     * @throws Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
+    public function exportAnswers(): BinaryFileResponse
+    {
+        return Excel::download(new AnswersExport(), 'answers.xlsx');
     }
 }

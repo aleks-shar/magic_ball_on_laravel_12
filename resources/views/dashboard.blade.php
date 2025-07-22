@@ -64,6 +64,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>История ваших вопросов</h3>
+                        <a class="btn btn-info" href="{{ route('export') }}">Export to Excel</a>
                     </div>
                     <div class="card-body p-0">
                         <table class="table table-striped projects">

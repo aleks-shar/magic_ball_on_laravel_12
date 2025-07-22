@@ -18,4 +18,5 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [MagicBallController::class, 'dashboard'])->name('dashboard');
     Route::post('/ask-question', [MagicBallController::class, 'askQuestion'])->name('ask-question');
+    Route::get('/export', [MagicBallController::class, 'exportAnswers'])->name('export');
 });
